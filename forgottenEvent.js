@@ -33,7 +33,7 @@ window.addEventListener("resize", () => {
 
 // _____________________________________________________________________________________________________________
 
-// log the keyEvents above when you wanna use it
+// log the keyEvents above when you wanna use it !!!!!!!!!!
 const input = document.querySelector("input");
 
 input.addEventListener("input", () => { 

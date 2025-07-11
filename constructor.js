@@ -103,7 +103,7 @@ const ele = new CreateElement("h1", "hellooo");
 //OOP is a style of programmer and js as a programming language support OOP;
 //OOP has 4 core concepts:
 
-//1. Encapsulation: in OOP we group related variables(properties) and functions(methods) that operate on them ,into an unit that we call it "object"; we do it against so many function that there is so many interdependency between all of them(spagetti code) and it becomes problematic somewhere. we have no parametre in their function part;the fewer number of parameters the easeir it is to use and maintain that function.
+//1. Encapsulation: in OOP we group related variables(properties) and functions(methods) that operate on them into an unit that we call it "object"; we do it against so many function that there is so many interdependency between all of them(spagetti code) and it becomes problematic somewhere. we have no parametre in their function part;the fewer number of parameters the easeir it is to use and maintain that function.
 
 //2. Abstraction: we can hide some of our properties and methodes(details and comlexity) in our object from the outside and this gives us a couple of benefits:first is using and uderestanding an object with fewer properties and methods is easier than a object with several properties and methods and the second is, it reduces the impact of change(none of the changes will impact the rest of the application code) .
 
@@ -190,3 +190,50 @@ console.log(bird.flySpeed);
 rabbit.run();
 fish.swim();
 bird.fly();
+
+
+// -----------------------------------
+
+//Create a Person class and extend it to a Student that adds a grade property:
+class Person {
+    constructor(name,age,nationality) {
+        this.name = name;
+        this.age = age;
+        this.nationality = nationality;
+    }
+    display() {
+        return `i am ${this.name} and ${this.age} years old, i am a/an ${this.nationality}`;
+    }
+}
+class Student extends Person {
+    constructor(name,age,nationality,grade) {
+        super(name, age, nationality);
+        this.grade = grade;
+    }
+    displayStudent() {
+        return `${super.display()} in ${this.grade} grade`
+    }
+}
+const person1 = new Person("ali", 23, "iranian");
+console.log(person1.display());
+const newPerson= new Student("nastaran", 18, "iranian", "term 2");
+console.log(newPerson.displayStudent());
+
+// or
+
+function Person2(name,age,nationality) {
+    this.name = name;
+    this.age = age;
+    this.nationality = nationality;
+    this.display2=function () {
+        return `i am ${this.name} and ${this.age} years old, i am a/an ${this.nationality}`;
+    }
+
+}
+Person2.prototype.display3=function () {
+    return `I am ${this.name} and ${this.age} years old, i am a/an ${this.nationality}`;
+}
+const student = new Person2("jasem", 10000, "jasemian");
+console.log(student.display3());
+console.log(student.display2());
+
