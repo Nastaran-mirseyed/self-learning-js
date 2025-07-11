@@ -237,3 +237,26 @@ const student = new Person2("jasem", 10000, "jasemian");
 console.log(student.display3());
 console.log(student.display2());
 
+
+
+//In JavaScript, the # symbol before a property name inside a class defines a private field (also called a private property). This means the property is only accessible within the class and cannot be accessed or modified directly from outside the class.
+//You must declare the private field at the top of the class (#privateProp;).
+//Why Use It?:
+// To encapsulate data — hiding implementation details and preventing accidental access or changes from outside the class
+
+class MyClass {
+  #privateProp; // private property
+
+  constructor(value) {
+    this.#privateProp = value;
+  }
+
+  getPrivateProp() {
+    return this.#privateProp;
+  }
+}
+
+const obj = new MyClass("secret");
+
+// console.log(obj.getPrivateProp()); // ✅ allowed: returns "secret"
+// console.log(obj.#privateProp);     // ❌ SyntaxError: Private field '#privateProp' must be declared in an enclosing class,otherwise you can't be able to access that propery directly form outside(Even if you try like p["#name"] or p.name, it still won’t work. ).If you want to safely access or modify a private property, you must do it through methods inside the class
