@@ -230,6 +230,7 @@ function Person2(name,age,nationality) {
     }
 
 }
+
 Person2.prototype.display3=function () {
     return `I am ${this.name} and ${this.age} years old, i am a/an ${this.nationality}`;
 }
